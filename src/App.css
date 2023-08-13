@@ -1,38 +1,114 @@
-.App {
+/*
+light theme
+--------------
+rgb(242, 245, 249) bg
+rgb(231, 240, 248) bg-contaner
+rgb(190, 193, 205) dark shadow contaner
+rgb(248, 250, 254) light shadow contaner
+rgb(103, 130, 169) text
+rgb(215, 226, 238) dark shadow for input
+rgb(252,253,254) light shadow for input
+rgb(240, 244, 248) light shadow for button
+rgb(211, 223, 233) dark shadow for button
+rgb(229, 239, 247) bg-button\input
+
+dark theme
+  --var-body-bg-dark: rgb(31, 34, 36);
+  --var-container-bg-dark: rgb(37, 40, 45);
+  --var-container-darkshadow-dark: rgb(190, 193, 205);
+  --var-container-lightshdow-dark: rgb(248, 250, 254);
+  --var-text-dark: rgb(143, 151, 162);
+  --var-input-darkshadow-dark: rgb(26, 28, 32);
+  --var-input-lightshadow-dark: rgb(49, 54, 62);
+  --var-button-darkshadow-dark: rgb(29, 33, 37);
+  --var-button-lightshadow-dark: rgb(45, 50, 57);
+  --var-bg-btn: rgb(36, 40, 46);
+*/
+:root{
+  /*light theme*/
+  --var-body-bg: rgb(242, 245, 249);
+  --var-container-bg: rgb(231, 240, 248);
+  --var-container-darkshadow: rgb(190, 193, 205);
+  --var-container-lightshdow: rgb(248, 250, 254);
+  --var-text: rgb(103, 130, 169);
+  --var-input-darkshadow: rgb(215, 226, 238);
+  --var-input-lightshadow: rgb(252,253,254);
+  --var-button-darkshadow: rgb(211, 223, 233);
+  --var-button-lightshadow: rgb(240, 244, 248);
+  --var-bg-btn: rgb(229, 239, 247);
+  /*dark theme*/
+}
+[theme='dark'] {
+  --var-body-bg: rgb(31, 34, 36);
+  --var-container-bg: rgb(37, 40, 45);
+  --var-container-darkshadow: rgb(26, 28, 32);
+  --var-container-lightshdow: rgb(49, 54, 62);
+  --var-text: rgb(143, 151, 162);
+  --var-input-darkshadow: rgb(26, 28, 32);
+  --var-input-lightshadow: rgb(49, 54, 62);
+  --var-button-darkshadow: rgb(29, 33, 37);
+  --var-button-lightshadow: rgb(45, 50, 57);
+  --var-bg-btn: rgb(36, 40, 46);
+}
+@font-face {
+  font-family: CamptonLight;
+  src: url(/src/assets/fonts/CamptonLight.otf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: var(--var-text);
+  font-family: CamptonLight, 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.btnTheme{
+  margin: 15px;
+}
+
+body {
+  background: var(--var-body-bg);
+}
+.container {
   text-align: center;
+  background: var(--var-container-bg);
+  width: 500px;
+  height: 600px;
+  padding: 15px 20px;
+  position: absolute;
+  margin-top: 50px;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 30px;
+  box-shadow: var(--var-container-darkshadow) 5px 5px 10px, var(--var-container-lightshdow) -5px -5px 10px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.pageName {
+  margin-bottom: 10px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button, input {
+  border: none;
+  background: var(--var-bg-btn);
+  font-size: 18px;
+  border-radius: 15px;
 }
+input {
+  width: 75%;
+  padding: 10px 20px;
+  border: 2px solid var(--var-input-lightshadow);
+  box-shadow: var(--var-input-darkshadow) 2px 2px,  var(--var-input-lightshadow) -5px -5px 5px inset, var(--var-input-darkshadow) 5px 5px 5px inset;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+input:active, input:focus {
+  outline: 0;
+  outline-offset: 0;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  float: right;
+  box-shadow: var(--var-button-lightshadow) -10px -10px 15px, var(--var-button-darkshadow) 10px 10px 10px;
+  padding: 10px 15px;
+}
+button:active {
+  border: 1px solid var(--var-input-lightshadow);
+  box-shadow:  var(--var-input-lightshadow) -5px -5px 10px inset, var(--var-input-darkshadow) 5px 5px 5px inset;
 }
